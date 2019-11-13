@@ -1,0 +1,26 @@
+CREATE TABLE Usuario(
+idUsuario INT not null AUTO_INCREMENT,
+PRIMARY KEY (idUsuario),
+Nome VARCHAR(100) NOT NULL,
+Sexo VARCHAR(1) NOT NULL,
+Email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Empresa(
+idEmpresa INT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (idEmpresa),
+Nome VARCHAR(100) NOT NULL,
+Telefone VARCHAR(12) NOT NULL
+);
+
+CREATE TABLE UsuarioxEmpresa(
+   id_usuario INT not null,
+   id_empresa INT not null,
+   
+   PRIMARY KEY (id_usuario, id_empresa),
+
+ CONSTRAINT fk_usuario  FOREIGN KEY (id_usuario)
+REFERENCES Usuario(idUsuario),
+   CONSTRAINT fk_empresa FOREIGN KEY (id_empresa)
+REFERENCES Empresa(idEmpresa)
+);
